@@ -6,4 +6,11 @@ public class BoardException extends RuntimeException{
     public BoardException(String message) {
         super(message);
     }
+
+    @Override
+    public String toString() {
+        return "BoardException []";
+    }
+
+    
 }
