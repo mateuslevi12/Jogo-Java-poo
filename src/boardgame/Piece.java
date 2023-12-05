@@ -24,6 +24,7 @@ public abstract class Piece {
         return possibleMoves()[position.getRow()][position.getColumn()];
     }
 
+    //verifica se o movimento é possivel
     public boolean isTherePossibleMove() {
         boolean [][] mat = possibleMoves();
         for (int i = 0; i < mat.length; i++) {

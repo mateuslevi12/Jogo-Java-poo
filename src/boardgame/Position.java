@@ -1,5 +1,5 @@
 package boardgame;
-
+// so serve pra pegar a linha e a coluna como posição
 public class Position {
     private int row;
     private int column;

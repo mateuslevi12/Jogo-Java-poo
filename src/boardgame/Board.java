@@ -6,6 +6,7 @@ public class Board {
     private int rows;
     private int columns;
     private Piece[][] pieces;
+
     //Cria um tabuleiro com o número específico de linhas (rows) e colunas (columns).
     public Board(int rows, int columns) {
         if (rows < 1 || columns < 1) {
@@ -32,6 +33,7 @@ public class Board {
         }
         return pieces[row][column];
     }
+    
     //Verifica se uma posição específica está dentro dos limites do tabuleiro com base nas coordenadas de linha e coluna.
     public Piece piece(Position position) {
         if (!positionExists(position)) {
