@@ -25,13 +25,14 @@ public class Position {
         this.column = column;
     }
 
-    @Override
-    public String toString() {
-        return "Position [row=" + row + ", column=" + column + "]";
-    }
-    
+    // serve para setar uma linha e coluna no tabuleiro
     public void setValues(int row, int column) {
         this.row = row;
         this.column = column;
+    }
+
+    @Override
+    public String toString() {
+        return "Position [row=" + row + ", column=" + column + "]";
     }
 }

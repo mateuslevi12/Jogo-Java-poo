@@ -5,15 +5,13 @@ import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
-
 import chess.ChessMatch;
 import chess.ChessPiece;
 import chess.ChessPosition;
 import chess.Color;
 
 public class UI {
-
-    
+    //cores da peça
 	public static final String ANSI_RESET = "\u001B[0m";
 	public static final String ANSI_BLACK = "\u001B[30m";
 	public static final String ANSI_RED = "\u001B[31m";
@@ -24,6 +22,7 @@ public class UI {
 	public static final String ANSI_CYAN = "\u001B[36m";
 	public static final String ANSI_WHITE = "\u001B[37m";
 
+    //cores de fundo
 	public static final String ANSI_BLACK_BACKGROUND = "\u001B[40m";
 	public static final String ANSI_RED_BACKGROUND = "\u001B[41m";
 	public static final String ANSI_GREEN_BACKGROUND = "\u001B[42m";
@@ -39,13 +38,13 @@ public class UI {
     }
 
     // ler a posição inicial e final da peça 
-
     public static ChessPosition readChessPosition(Scanner sc) {
     try {
         String s = sc.nextLine();
         char column = s.charAt(0);
         int row = Integer.parseInt(s.substring(1));
         return new ChessPosition(column, row);
+
     } catch (RuntimeException e) {
         throw new InputMismatchException("Error reading Chess Position. Valid values are from a1 to h8");
     }
@@ -54,11 +53,12 @@ public class UI {
 public static void printMatch(ChessMatch chessMatch, List<ChessPiece> captured) {
     printBoard(chessMatch.getPieces());
     System.out.println();
-    printCapturedPieces(captured);
+    printCapturedPieces(captured); 
     System.out.println();
     System.out.println("Turn " + chessMatch.getTurn());
+
     if(!chessMatch.getCheckMate()){
-        System.out.println("Waiting Player " + chessMatch.getCurrentPlayer());  
+        System.out.println("Waiting Player " + chessMatch.getCurrentPlayer()); 
         
         if(chessMatch.getCheck()) {
             System.out.println("CHECK!");
@@ -68,13 +68,11 @@ public static void printMatch(ChessMatch chessMatch, List<ChessPiece> captured) 
         System.out.println("CHECKMATE!");
         System.out.println("Winner: " + chessMatch.getCurrentPlayer());
     }
-
-    
 }
 
 //  printar tabuleiro
     public static void printBoard(ChessPiece[][] pieces) {
-        for (int i = 0; i < pieces.length; i++) {
+        for (int i = 0; i < pieces.length; i++) { //percorre a matriz de peças 
             System.out.print((8 - i) + " ");
             for (int j = 0; j < pieces.length; j++) {
                 printPiece(pieces[i][j], false);
@@ -82,7 +80,6 @@ public static void printMatch(ChessMatch chessMatch, List<ChessPiece> captured) 
             System.out.println();
         }
         System.out.println("  a b c d e f g h");
-
     }
 
     public static void printBoard(ChessPiece[][] pieces, boolean[][] possibleMoves) {

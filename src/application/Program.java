@@ -21,7 +21,7 @@ public class Program {
 
         while (!chessMatch.getCheckMate()) {
            try {
-             UI.cleanScreen();
+            UI.cleanScreen();
             UI.printMatch(chessMatch, captured);
             System.out.println();
             System.out.print("Source: ");
